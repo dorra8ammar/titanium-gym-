@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black-deep: #08080C;
+  --black-soft: #0E0E12;
+  --black-card: #121216;
+  --gold: #FFD700;
+  --gold-dim: rgba(255, 215, 0, 0.4);
+  --border-subtle: rgba(255, 215, 0, 0.08);
+  --border-gold-light: rgba(255, 215, 0, 0.15);
+}
+
+body {
+  background-color: var(--black-deep);
+  color: #F0F0F2;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Classes personnalisées */
+.bg-black-deep {
+  background-color: #08080C;
+}
+
+.text-gold {
+  color: #FFD700;
+}
+/* ... etc */
