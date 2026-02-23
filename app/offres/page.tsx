@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Breadcrumb from '@/components/ui/Breadcrumb'
@@ -77,7 +77,8 @@ const clubsData = [
   }
 ]
 
-export default function OffresPage() {
+// --- NOUVEAU COMPOSANT SÉPARÉ POUR LA PARTIE AVEC useSearchParams ---
+function OffresContent() {
   const searchParams = useSearchParams()
   const [passActif, setPassActif] = useState('blue')
   const [clubIndex, setClubIndex] = useState(0)
@@ -102,32 +103,7 @@ export default function OffresPage() {
   const data = tarifsData[passActif as keyof typeof tarifsData]
 
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
-      <Breadcrumb 
-        items={[
-          { label: 'Accueil', href: '/' },
-          { label: 'OFFRES', active: true }
-        ]} 
-      />
-
-      {/* Bandeau titre + image */}
-      <div className="flex flex-col lg:flex-row items-center gap-8 my-8">
-        <div className="flex-1">
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white leading-tight">
-            NOS <span className="text-gold">OFFRES</span><br />POUR VOUS
-          </h1>
-        </div>
-        <div className="w-full lg:w-[500px] h-[300px] rounded-xl overflow-hidden border-2 border-border-gold-light">
-          <Image 
-            src="/Coach_Titanium_Gym.jpg"
-            alt="Coach Titanium Gym"
-            width={500}
-            height={300}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-
+    <>
       {/* Layout 2 colonnes */}
       <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 py-10">
         {/* Colonne gauche - Liste des pass */}
@@ -314,6 +290,47 @@ export default function OffresPage() {
           </div>
         </div>
       </div>
+    </>
+  )
+}
+
+// --- COMPOSANT PRINCIPAL (page) ---
+export default function OffresPage() {
+  return (
+    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+      <Breadcrumb 
+        items={[
+          { label: 'Accueil', href: '/' },
+          { label: 'OFFRES', active: true }
+        ]} 
+      />
+
+      {/* Bandeau titre + image */}
+      <div className="flex flex-col lg:flex-row items-center gap-8 my-8">
+        <div className="flex-1">
+          <h1 className="text-4xl lg:text-5xl font-semibold text-white leading-tight">
+            NOS <span className="text-gold">OFFRES</span><br />POUR VOUS
+          </h1>
+        </div>
+        <div className="w-full lg:w-[500px] h-[300px] rounded-xl overflow-hidden border-2 border-border-gold-light">
+          <Image 
+            src="/Coach_Titanium_Gym.jpg"
+            alt="Coach Titanium Gym"
+            width={500}
+            height={300}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      {/* On enveloppe la partie dynamique dans Suspense avec useSearchParams */}
+      <Suspense fallback={
+        <div className="py-20 text-center">
+          <div className="text-gold text-xl">Chargement des offres...</div>
+        </div>
+      }>
+        <OffresContent />
+      </Suspense>
     </div>
   )
 }
