@@ -77,7 +77,7 @@ const clubsData = [
   }
 ]
 
-// --- NOUVEAU COMPOSANT SÉPARÉ POUR LA PARTIE AVEC useSearchParams ---
+// --- COMPOSANT POUR LE CONTENU DES OFFRES ---
 function OffresContent() {
   const searchParams = useSearchParams()
   const [passActif, setPassActif] = useState('blue')
@@ -104,67 +104,95 @@ function OffresContent() {
 
   return (
     <>
-      {/* Layout 2 colonnes */}
-      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 py-10">
+      {/* Layout 2 colonnes avec classe pour responsive */}
+      <div className="offers-layout grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 lg:gap-10 py-6 lg:py-10">
         {/* Colonne gauche - Liste des pass */}
-        <div className="bg-black-card rounded-2xl p-8 border border-border-subtle h-fit sticky top-24">
+        <div className="bg-black-card rounded-2xl p-6 lg:p-8 border border-border-subtle lg:sticky top-24">
           <h3 className="text-gold text-sm font-medium tracking-widest uppercase pb-4 border-b border-border-subtle mb-4">
             NOS PASS
           </h3>
-          {['blue', 'yellow', 'green'].map((pass) => (
-            <button
-              key={pass}
-              onClick={() => setPassActif(pass)}
-              className={`w-full text-left p-4 mb-2 border rounded-xl transition-all ${
-                passActif === pass
-                  ? 'border-gold bg-gold-min text-gold'
-                  : 'border-border-subtle text-text-gray hover:border-border-gold-light hover:text-gold'
-              }`}
-            >
-              {tarifsData[pass as keyof typeof tarifsData].nom}
-            </button>
-          ))}
+          <div className="flex flex-col lg:block gap-2">
+            {['blue', 'yellow', 'green'].map((pass) => (
+              <button
+                key={pass}
+                onClick={() => setPassActif(pass)}
+                className={`w-full text-left p-3 lg:p-4 mb-2 border rounded-xl transition-all text-sm lg:text-base ${
+                  passActif === pass
+                    ? 'border-gold bg-gold-min text-gold'
+                    : 'border-border-subtle text-text-gray hover:border-border-gold-light hover:text-gold'
+                }`}
+              >
+                {tarifsData[pass as keyof typeof tarifsData].nom}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Colonne droite - Contenu */}
         <div>
           {/* Tableau des tarifs */}
-          <div className="bg-black-card rounded-2xl p-8 border border-border-subtle mb-8">
-            <h3 className="text-gold text-2xl font-medium mb-5">TARIFS {data.nom}</h3>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border-gold-light">
-                  <th className="text-left py-3 text-gold text-sm tracking-wider"></th>
-                  <th className="text-left py-3 text-gold text-sm tracking-wider">12 MOIS</th>
-                  <th className="text-left py-3 text-gold text-sm tracking-wider">15 MOIS</th>
-                  <th className="text-left py-3 text-gold text-sm tracking-wider">18 MOIS</th>
-                  <th className="text-left py-3 text-gold text-sm tracking-wider">21 MOIS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-border-subtle">
-                  <td className="py-4 text-gold font-medium">{data.nom}</td>
-                  <td className="py-4 text-gold">{data.douze}</td>
-                  <td className="py-4 text-gold">{data.quinze}</td>
-                  <td className="py-4 text-gold">{data.dixhuit}</td>
-                  <td className="py-4 text-gold">{data.vingtun}</td>
-                </tr>
-                <tr>
-                  <td className="py-4 text-gold font-medium">PRÉLÈVEMENT AUTOMATIQUE*</td>
-                  <td colSpan={4} className="py-4 text-gold">{data.prelevement.montant} / 2 semaines</td>
-                </tr>
-              </tbody>
-            </table>
-            <p className="text-text-darkgray text-sm italic mt-4">* Voir détails ci-dessous</p>
+          <div className="bg-black-card rounded-2xl p-6 lg:p-8 border border-border-subtle mb-6 lg:mb-8">
+            <h3 className="text-gold text-xl lg:text-2xl font-medium mb-4 lg:mb-5">
+              TARIFS {data.nom}
+            </h3>
+            
+            {/* Version mobile - cartes */}
+            <div className="block lg:hidden space-y-4">
+              <div className="grid grid-cols-4 gap-2 mb-4">
+                <div className="text-gold text-xs font-medium">12 MOIS</div>
+                <div className="text-gold text-xs font-medium">15 MOIS</div>
+                <div className="text-gold text-xs font-medium">18 MOIS</div>
+                <div className="text-gold text-xs font-medium">21 MOIS</div>
+              </div>
+              <div className="grid grid-cols-4 gap-2">
+                <div className="text-gold text-lg font-bold">{data.douze}</div>
+                <div className="text-gold text-lg font-bold">{data.quinze}</div>
+                <div className="text-gold text-lg font-bold">{data.dixhuit}</div>
+                <div className="text-gold text-lg font-bold">{data.vingtun}</div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-border-subtle">
+                <div className="text-gold font-medium">PRÉLÈVEMENT AUTOMATIQUE*</div>
+                <div className="text-gold text-lg font-bold mt-2">{data.prelevement.montant} / 2 semaines</div>
+              </div>
+            </div>
+
+            {/* Version desktop - tableau */}
+            <div className="hidden lg:block overflow-x-auto">
+              <table className="w-full min-w-[600px]">
+                <thead>
+                  <tr className="border-b border-border-gold-light">
+                    <th className="text-left py-3 text-gold text-sm tracking-wider"></th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">12 MOIS</th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">15 MOIS</th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">18 MOIS</th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">21 MOIS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border-subtle">
+                    <td className="py-4 text-gold font-medium">{data.nom}</td>
+                    <td className="py-4 text-gold">{data.douze}</td>
+                    <td className="py-4 text-gold">{data.quinze}</td>
+                    <td className="py-4 text-gold">{data.dixhuit}</td>
+                    <td className="py-4 text-gold">{data.vingtun}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 text-gold font-medium">PRÉLÈVEMENT AUTOMATIQUE*</td>
+                    <td colSpan={4} className="py-4 text-gold">{data.prelevement.montant} / 2 semaines</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-text-darkgray text-xs lg:text-sm italic mt-4">* Voir détails ci-dessous</p>
           </div>
 
           {/* Bloc prélèvement */}
-          <div className="bg-gradient-to-br from-black-card to-[#0A0A12] rounded-xl p-8 border border-border-gold-light mb-8">
-            <h3 className="flex items-center gap-3 text-gold text-xl font-medium mb-4">
+          <div className="bg-gradient-to-br from-black-card to-[#0A0A12] rounded-xl p-6 lg:p-8 border border-border-gold-light mb-6 lg:mb-8">
+            <h3 className="flex items-center gap-3 text-gold text-lg lg:text-xl font-medium mb-4">
               <i className="fas fa-credit-card"></i>
               PRÉLÈVEMENT AUTOMATIQUE
             </h3>
-            <p className="text-text-gray">
+            <p className="text-text-gray text-sm lg:text-base">
               Pour le <span className="text-gold font-medium">{data.nom} par prélèvement</span> : 
               un montant de <span className="text-gold font-medium">{data.prelevement.montant}</span> sera prélevé 
               automatiquement de votre compte bancaire toutes les 2 semaines, avec un engagement minimal d'un an. 
@@ -176,8 +204,8 @@ function OffresContent() {
 
           {/* Statistiques plateaux */}
           <div className="mb-8">
-            <h2 className="flex items-center gap-4 text-2xl font-medium text-white mb-6">
-              <i className="fas fa-dumbbell text-gold text-3xl"></i>
+            <h2 className="flex items-center gap-3 lg:gap-4 text-xl lg:text-2xl font-medium text-white mb-4 lg:mb-6">
+              <i className="fas fa-dumbbell text-gold text-2xl lg:text-3xl"></i>
               NOMBRE DE PLATEAUX D'ACTIVITÉS
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -190,13 +218,13 @@ function OffresContent() {
                 { icon: "fa-wind", label: "Vaporium", value: "11" },
                 { icon: "fa-chart-line", label: "Cours training", value: "10" }
               ].map((stat, index) => (
-                <div key={index} className="flex items-center gap-4 py-3 border-b border-border-subtle">
-                  <div className="w-10 h-10 rounded-full bg-gold-min border border-border-gold-light flex items-center justify-center text-gold">
+                <div key={index} className="flex items-center gap-3 lg:gap-4 py-2 lg:py-3 border-b border-border-subtle">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gold-min border border-border-gold-light flex items-center justify-center text-gold text-sm lg:text-base">
                     <i className={`fas ${stat.icon}`}></i>
                   </div>
                   <div className="flex-1 flex justify-between items-center">
-                    <span className="text-text-gray">{stat.label}</span>
-                    <span className="text-gold text-xl font-medium">{stat.value}</span>
+                    <span className="text-text-gray text-xs lg:text-sm">{stat.label}</span>
+                    <span className="text-gold text-base lg:text-xl font-medium">{stat.value}</span>
                   </div>
                 </div>
               ))}
@@ -205,22 +233,22 @@ function OffresContent() {
 
           {/* Conditions de vente */}
           <div className="mb-8">
-            <h2 className="flex items-center gap-4 text-2xl font-medium text-white mb-6">
-              <i className="fas fa-file-contract text-gold"></i>
+            <h2 className="flex items-center gap-3 lg:gap-4 text-xl lg:text-2xl font-medium text-white mb-4 lg:mb-6">
+              <i className="fas fa-file-contract text-gold text-xl lg:text-2xl"></i>
               CONDITIONS DE VENTE
             </h2>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-4 text-text-gray border-b border-border-subtle pb-3">
-                <i className="fas fa-check-circle text-gold text-lg"></i>
-                Les frais d'inscription de <span className="text-gold font-medium">45 DT</span> sont payés uniquement lors de la première inscription.
+            <ul className="space-y-3 lg:space-y-4">
+              <li className="flex items-start gap-3 lg:gap-4 text-text-gray border-b border-border-subtle pb-2 lg:pb-3">
+                <i className="fas fa-check-circle text-gold text-base lg:text-lg mt-0.5"></i>
+                <span className="text-xs lg:text-sm">Les frais d'inscription de <span className="text-gold font-medium">45 DT</span> sont payés uniquement lors de la première inscription.</span>
               </li>
-              <li className="flex items-center gap-4 text-text-gray border-b border-border-subtle pb-3">
-                <i className="fas fa-times-circle text-gold text-lg"></i>
-                Les abonnements ne sont ni remboursables ni transférables.
+              <li className="flex items-start gap-3 lg:gap-4 text-text-gray border-b border-border-subtle pb-2 lg:pb-3">
+                <i className="fas fa-times-circle text-gold text-base lg:text-lg mt-0.5"></i>
+                <span className="text-xs lg:text-sm">Les abonnements ne sont ni remboursables ni transférables.</span>
               </li>
-              <li className="flex items-center gap-4 text-text-gray border-b border-border-subtle pb-3">
-                <i className="fas fa-id-card text-gold text-lg"></i>
-                En cas de perte, la carte membre sera remplacée moyennant <span className="text-gold font-medium">30 DT</span>.
+              <li className="flex items-start gap-3 lg:gap-4 text-text-gray border-b border-border-subtle pb-2 lg:pb-3">
+                <i className="fas fa-id-card text-gold text-base lg:text-lg mt-0.5"></i>
+                <span className="text-xs lg:text-sm">En cas de perte, la carte membre sera remplacée moyennant <span className="text-gold font-medium">30 DT</span>.</span>
               </li>
             </ul>
           </div>
@@ -228,13 +256,13 @@ function OffresContent() {
       </div>
 
       {/* Slider clubs */}
-      <div className="my-16">
-        <div className="flex items-center gap-4 mb-8">
-          <i className="fas fa-map-marked-alt text-gold text-3xl"></i>
-          <h2 className="text-2xl font-medium text-white">NOS CLUBS EN TUNISIE</h2>
+      <div className="my-12 lg:my-16">
+        <div className="flex items-center gap-3 lg:gap-4 mb-6 lg:mb-8">
+          <i className="fas fa-map-marked-alt text-gold text-2xl lg:text-3xl"></i>
+          <h2 className="text-xl lg:text-2xl font-medium text-white">NOS CLUBS EN TUNISIE</h2>
         </div>
 
-        <div className="relative h-[450px] rounded-2xl overflow-hidden border border-border-subtle">
+        <div className="relative h-[300px] lg:h-[450px] rounded-2xl overflow-hidden border border-border-subtle">
           {clubsData.map((club, index) => (
             <div
               key={club.ville}
@@ -248,23 +276,23 @@ function OffresContent() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-center gap-3 mb-2">
-                  <i className="fas fa-map-marker-alt text-gold text-2xl"></i>
-                  <h3 className="text-gold text-3xl font-semibold">{club.ville}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 bg-gradient-to-t from-black/90 to-transparent">
+                <div className="flex items-center gap-2 lg:gap-3 mb-1 lg:mb-2">
+                  <i className="fas fa-map-marker-alt text-gold text-xl lg:text-2xl"></i>
+                  <h3 className="text-gold text-2xl lg:text-3xl font-semibold">{club.ville}</h3>
                 </div>
-                <p className="text-text-gray">{club.adresse}</p>
+                <p className="text-text-gray text-xs lg:text-sm">{club.adresse}</p>
               </div>
             </div>
           ))}
 
           {/* Dots */}
-          <div className="absolute bottom-5 right-6 flex gap-3 z-10">
+          <div className="absolute bottom-3 lg:bottom-5 right-4 lg:right-6 flex gap-2 lg:gap-3 z-10">
             {clubsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setClubIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
+                className={`w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full transition-all ${
                   index === clubIndex 
                     ? 'bg-gold scale-125 shadow-glow' 
                     : 'bg-white/30 hover:bg-gold-dim'
@@ -274,16 +302,16 @@ function OffresContent() {
           </div>
 
           {/* Flèches */}
-          <div className="absolute inset-0 flex items-center justify-between px-6 pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-between px-3 lg:px-6 pointer-events-none">
             <button
               onClick={prevClub}
-              className="w-11 h-11 rounded-full bg-black-deep/70 backdrop-blur-sm border border-border-gold-light text-gold hover:bg-gold/20 transition-all pointer-events-auto"
+              className="w-8 h-8 lg:w-11 lg:h-11 rounded-full bg-black-deep/70 backdrop-blur-sm border border-border-gold-light text-gold hover:bg-gold/20 transition-all pointer-events-auto text-sm lg:text-base"
             >
               <i className="fas fa-chevron-left"></i>
             </button>
             <button
               onClick={nextClub}
-              className="w-11 h-11 rounded-full bg-black-deep/70 backdrop-blur-sm border border-border-gold-light text-gold hover:bg-gold/20 transition-all pointer-events-auto"
+              className="w-8 h-8 lg:w-11 lg:h-11 rounded-full bg-black-deep/70 backdrop-blur-sm border border-border-gold-light text-gold hover:bg-gold/20 transition-all pointer-events-auto text-sm lg:text-base"
             >
               <i className="fas fa-chevron-right"></i>
             </button>
@@ -297,7 +325,7 @@ function OffresContent() {
 // --- COMPOSANT PRINCIPAL (page) ---
 export default function OffresPage() {
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-[1300px]">
       <Breadcrumb 
         items={[
           { label: 'Accueil', href: '/' },
@@ -306,13 +334,13 @@ export default function OffresPage() {
       />
 
       {/* Bandeau titre + image */}
-      <div className="flex flex-col lg:flex-row items-center gap-8 my-8">
-        <div className="flex-1">
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white leading-tight">
+      <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 my-6 lg:my-8">
+        <div className="flex-1 text-center lg:text-left">
+          <h1 className="text-3xl lg:text-5xl font-semibold text-white leading-tight">
             NOS <span className="text-gold">OFFRES</span><br />POUR VOUS
           </h1>
         </div>
-        <div className="w-full lg:w-[500px] h-[300px] rounded-xl overflow-hidden border-2 border-border-gold-light">
+        <div className="w-full lg:w-[500px] h-[200px] lg:h-[300px] rounded-xl overflow-hidden border-2 border-border-gold-light">
           <Image 
             src="/Coach_Titanium_Gym.jpg"
             alt="Coach Titanium Gym"
@@ -325,8 +353,8 @@ export default function OffresPage() {
 
       {/* On enveloppe la partie dynamique dans Suspense avec useSearchParams */}
       <Suspense fallback={
-        <div className="py-20 text-center">
-          <div className="text-gold text-xl">Chargement des offres...</div>
+        <div className="py-10 lg:py-20 text-center">
+          <div className="text-gold text-lg lg:text-xl">Chargement des offres...</div>
         </div>
       }>
         <OffresContent />

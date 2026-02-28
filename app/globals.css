@@ -40,3 +40,176 @@ body {
 * {
   border-color: var(--color-border-subtle);
 }
+
+/* ===== CORRECTIONS RESPONSIVE POUR LA PAGE OFFRES ===== */
+
+/* Pour les écrans jusqu'à 1024px (tablettes) */
+@media screen and (max-width: 1024px) {
+  .offers-layout {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .offers-layout > div:first-child {
+    position: static !important;
+    margin-bottom: 20px;
+  }
+}
+
+/* Pour les écrans jusqu'à 768px (mobiles) */
+@media screen and (max-width: 768px) {
+  /* Bandeau titre + image */
+  .flex-col.lg\:flex-row {
+    flex-direction: column;
+  }
+  
+  /* Boutons des pass en ligne */
+  .bg-black-card .w-full.text-left.p-4 {
+    width: 100% !important;
+    display: block;
+    margin: 8px 0 !important;
+  }
+  
+  /* Tableau des tarifs - scrollable */
+  .bg-black-card.rounded-2xl.p-8 {
+    padding: 16px !important;
+    overflow-x: auto;
+  }
+  
+  table {
+    min-width: 600px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px 5px !important;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  /* Titres plus petits */
+  h1.text-4xl {
+    font-size: 32px !important;
+  }
+  
+  h2.text-2xl {
+    font-size: 20px !important;
+  }
+  
+  h3.text-gold.text-2xl {
+    font-size: 18px !important;
+  }
+  
+  /* Bloc prélèvement */
+  .bg-gradient-to-br {
+    padding: 20px !important;
+  }
+  
+  .bg-gradient-to-br p {
+    font-size: 14px;
+  }
+  
+  /* Statistiques */
+  .grid.grid-cols-1.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Slider clubs */
+  .my-16 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .relative.h-\[450px\] {
+    height: 350px !important;
+  }
+  
+  .p-10.bg-gradient-to-t {
+    padding: 20px !important;
+  }
+  
+  h3.text-gold.text-3xl {
+    font-size: 24px !important;
+  }
+}
+
+/* Pour les très petits écrans (moins de 480px) */
+@media screen and (max-width: 480px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  h1.text-4xl {
+    font-size: 28px !important;
+  }
+  
+  .bg-black-card.rounded-2xl.p-8 {
+    padding: 12px !important;
+  }
+  
+  table th,
+  table td {
+    padding: 8px 3px !important;
+    font-size: 11px;
+  }
+  
+  .text-gold.text-xl {
+    font-size: 16px !important;
+  }
+  
+  .w-11.h-11 {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .relative.h-\[450px\] {
+    height: 300px !important;
+  }
+  
+  .p-10.bg-gradient-to-t {
+    padding: 15px !important;
+  }
+  
+  h3.text-gold.text-3xl {
+    font-size: 20px !important;
+  }
+  
+  p.text-text-gray {
+    font-size: 12px !important;
+  }
+}
+
+/* Style pour le conteneur principal */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Amélioration du tableau pour mobile */
+@media screen and (max-width: 768px) {
+  .offers-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .offers-table {
+    min-width: 600px;
+    border-collapse: collapse;
+  }
+  
+  .offers-table th,
+  .offers-table td {
+    white-space: nowrap;
+  }
+}
+
+/* Animation pour le chargement */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
