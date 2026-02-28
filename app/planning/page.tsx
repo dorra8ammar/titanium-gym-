@@ -244,7 +244,7 @@ export default function PlanningPage() {
       </div>
 
       {/* Planning Table */}
-      <div className="my-10 overflow-x-auto bg-white rounded-xl p-5 shadow-lg">
+      <div className="my-10 overflow-x-auto bg-black-card rounded-xl p-5 shadow-lg">
         <table className="w-full min-w-[1000px] border-collapse">
           <thead>
             <tr>
