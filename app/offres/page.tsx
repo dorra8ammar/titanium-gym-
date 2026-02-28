@@ -140,9 +140,9 @@ function OffresContent() {
             <div className="block lg:hidden space-y-4">
               <div className="grid grid-cols-4 gap-2 mb-4">
                 <div className="text-gold text-xs font-medium">12 MOIS</div>
-                <div className="text-gold text-xs font-medium">15 MOIS</div>
-                <div className="text-gold text-xs font-medium">18 MOIS</div>
-                <div className="text-gold text-xs font-medium">21 MOIS</div>
+                <div className="text-gold text-xs font-medium">6 MOIS</div>
+                <div className="text-gold text-xs font-medium">3 MOIS</div>
+                <div className="text-gold text-xs font-medium">1 MOIS</div>
               </div>
               <div className="grid grid-cols-4 gap-2">
                 <div className="text-gold text-lg font-bold">{data.douze}</div>
