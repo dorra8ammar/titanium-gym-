@@ -11,9 +11,9 @@ const tarifsData = {
   blue: {
     nom: "BLUE PASS-SPORT",
     douze: "1 510 DT",
-    quinze: "940 DT",
-    dixhuit: "570 DT",
-    vingtun: "210 DT",
+    six: "940 DT",
+    trois: "570 DT",
+    un: "210 DT",
     prelevement: {
       montant: "58 DT",
       initial: "230 DT"
@@ -22,9 +22,9 @@ const tarifsData = {
   yellow: {
     nom: "YELLOW PASS-SPORT",
     douze: "1 200 DT",
-    quinze: "750 DT",
-    dixhuit: "450 DT",
-    vingtun: "180 DT",
+    six: "750 DT",
+    trois: "450 DT",
+    un: "180 DT",
     prelevement: {
       montant: "46 DT",
       initial: "185 DT"
@@ -33,9 +33,9 @@ const tarifsData = {
   green: {
     nom: "GREEN PASS-SPORT",
     douze: "950 DT",
-    quinze: "600 DT",
-    dixhuit: "360 DT",
-    vingtun: "140 DT",
+    six: "600 DT",
+    trois: "360 DT",
+    un: "140 DT",
     prelevement: {
       montant: "36 DT",
       initial: "150 DT"
@@ -146,9 +146,9 @@ function OffresContent() {
               </div>
               <div className="grid grid-cols-4 gap-2">
                 <div className="text-gold text-lg font-bold">{data.douze}</div>
-                <div className="text-gold text-lg font-bold">{data.quinze}</div>
-                <div className="text-gold text-lg font-bold">{data.dixhuit}</div>
-                <div className="text-gold text-lg font-bold">{data.vingtun}</div>
+                <div className="text-gold text-lg font-bold">{data.six}</div>
+                <div className="text-gold text-lg font-bold">{data.trois}</div>
+                <div className="text-gold text-lg font-bold">{data.un}</div>
               </div>
               <div className="mt-4 pt-4 border-t border-border-subtle">
                 <div className="text-gold font-medium">PRÉLÈVEMENT AUTOMATIQUE*</div>
@@ -163,18 +163,18 @@ function OffresContent() {
                   <tr className="border-b border-border-gold-light">
                     <th className="text-left py-3 text-gold text-sm tracking-wider"></th>
                     <th className="text-left py-3 text-gold text-sm tracking-wider">12 MOIS</th>
-                    <th className="text-left py-3 text-gold text-sm tracking-wider">15 MOIS</th>
-                    <th className="text-left py-3 text-gold text-sm tracking-wider">18 MOIS</th>
-                    <th className="text-left py-3 text-gold text-sm tracking-wider">21 MOIS</th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">6 MOIS</th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">3 MOIS</th>
+                    <th className="text-left py-3 text-gold text-sm tracking-wider">1 MOIS</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-border-subtle">
                     <td className="py-4 text-gold font-medium">{data.nom}</td>
                     <td className="py-4 text-gold">{data.douze}</td>
-                    <td className="py-4 text-gold">{data.quinze}</td>
-                    <td className="py-4 text-gold">{data.dixhuit}</td>
-                    <td className="py-4 text-gold">{data.vingtun}</td>
+                    <td className="py-4 text-gold">{data.six}</td>
+                    <td className="py-4 text-gold">{data.trois}</td>
+                    <td className="py-4 text-gold">{data.un}</td>
                   </tr>
                   <tr>
                     <td className="py-4 text-gold font-medium">PRÉLÈVEMENT AUTOMATIQUE*</td>
