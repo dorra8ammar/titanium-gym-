@@ -79,41 +79,95 @@ export default function HomePage() {
         <ContactInfo />
         
         {/* SECTION FAQ AJOUTÉE POUR LE SEO */}
-        <section className="py-12 mt-8 border-t border-white/10">
-          <h2 className="text-2xl font-semibold text-white mb-6">Questions fréquentes sur Titanium Gym Sousse</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-              <h3 className="text-gold font-semibold mb-2">Quels sont les horaires d'ouverture ?</h3>
-              <p className="text-text-gray text-sm">Titanium Gym est ouvert du lundi au vendredi de 6h à 22h, le samedi et dimanche de 7h à 18h. Accès 24/7 avec la formule BLUE PASS.</p>
-            </div>
-            
-            <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-              <h3 className="text-gold font-semibold mb-2">Où se trouve Titanium Gym à Sousse ?</h3>
-              <p className="text-text-gray text-sm">Notre salle est située sur l'Avenue de Yasser Arafat, à Sousse, en face de la Banque Zitouna. Stationnement facile disponible.</p>
-            </div>
-            
-            <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-              <h3 className="text-gold font-semibold mb-2">Quels cours collectifs sont proposés ?</h3>
-              <p className="text-text-gray text-sm">Nous proposons Bodypump, RPM, Bodycombat, Yoga, Zumba, Cross training, TRX et HBX-Boxing. Tous les cours sont inclus dans l'abonnement.</p>
-            </div>
-            
-            <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-              <h3 className="text-gold font-semibold mb-2">Le sauna et le Vaporium sont-ils inclus ?</h3>
-              <p className="text-text-gray text-sm">Oui, le Vaporium et le Sauna sont inclus dans toutes nos formules, sans supplément.</p>
-            </div>
-            
-            <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-              <h3 className="text-gold font-semibold mb-2">Quel est le prix de l'abonnement ?</h3>
-              <p className="text-text-gray text-sm">Nous proposons deux formules : BLUE PASS (accès 24/7 illimité) et YELLOW PASS (accès heures creuses). Contactez-nous pour les tarifs actuels.</p>
-            </div>
-            
-            <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-              <h3 className="text-gold font-semibold mb-2">Y a-t-il un parking ?</h3>
-              <p className="text-text-gray text-sm">Oui, un parking est disponible pour les membres Titanium Gym.</p>
-            </div>
-          </div>
-        </section>
+        {/* SECTION FAQ AVEC COULEURS */}
+<section className="py-12 mt-8 border-t border-gold-dim/30">
+  <h2 className="text-2xl md:text-3xl font-semibold text-white mb-3 text-center md:text-left">
+    Questions fréquentes sur <span className="text-gold">Titanium Gym Sousse</span>
+  </h2>
+  <p className="text-text-gray mb-8 text-sm text-center md:text-left">
+    Tout ce que vous devez savoir avant de rejoindre notre salle de sport
+  </p>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+    {/* Question 1 - Horaires */}
+    <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i className="fas fa-clock text-gold text-sm"></i>
+        </div>
+        <div>
+          <h3 className="text-gold font-semibold mb-2 text-base">Quels sont les horaires d'ouverture ?</h3>
+          <p className="text-text-gray text-sm leading-relaxed">Titanium Gym est ouvert du lundi au vendredi de <span className="text-gold">6h à 22h</span>, le samedi et dimanche de <span className="text-gold">7h à 18h</span>. Accès 24/7 avec la formule <span className="text-blue-400">BLUE PASS</span>.</p>
+        </div>
+      </div>
+    </div>
+    
+    {/* Question 2 - Localisation */}
+    <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i className="fas fa-map-marker-alt text-gold text-sm"></i>
+        </div>
+        <div>
+          <h3 className="text-gold font-semibold mb-2 text-base">Où se trouve Titanium Gym à Sousse ?</h3>
+          <p className="text-text-gray text-sm leading-relaxed">Notre salle est située sur l'<span className="text-gold">Avenue de Yasser Arafat</span>, à Sousse, en face de la Banque Zitouna. Stationnement facile disponible.</p>
+        </div>
+      </div>
+    </div>
+    
+    {/* Question 3 - Cours collectifs */}
+    <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i className="fas fa-fitness-center text-gold text-sm"></i>
+        </div>
+        <div>
+          <h3 className="text-gold font-semibold mb-2 text-base">Quels cours collectifs sont proposés ?</h3>
+          <p className="text-text-gray text-sm leading-relaxed">Nous proposons <span className="text-gold">Bodypump, RPM, Bodycombat, Yoga, Zumba, Cross training, TRX et HBX-Boxing</span>. Tous les cours sont inclus dans l'abonnement.</p>
+        </div>
+      </div>
+    </div>
+    
+    {/* Question 4 - Sauna inclus */}
+    <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i className="fas fa-hot-tub text-gold text-sm"></i>
+        </div>
+        <div>
+          <h3 className="text-gold font-semibold mb-2 text-base">Le sauna et le Vaporium sont-ils inclus ?</h3>
+          <p className="text-text-gray text-sm leading-relaxed">Oui, le <span className="text-gold">Vaporium et le Sauna sont inclus</span> dans toutes nos formules, sans supplément.</p>
+        </div>
+      </div>
+    </div>
+    
+    {/* Question 5 - Prix */}
+    <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i className="fas fa-tag text-gold text-sm"></i>
+        </div>
+        <div>
+          <h3 className="text-gold font-semibold mb-2 text-base">Quel est le prix de l'abonnement ?</h3>
+          <p className="text-text-gray text-sm leading-relaxed">Nous proposons deux formules : <span className="text-blue-400 font-medium">BLUE PASS</span> (accès 24/7 illimité) et <span className="text-yellow-400 font-medium">YELLOW PASS</span> (accès heures creuses). <span className="text-gold">Contactez-nous pour les tarifs actuels</span>.</p>
+        </div>
+      </div>
+    </div>
+    
+    {/* Question 6 - Parking */}
+    <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i className="fas fa-parking text-gold text-sm"></i>
+        </div>
+        <div>
+          <h3 className="text-gold font-semibold mb-2 text-base">Y a-t-il un parking ?</h3>
+          <p className="text-text-gray text-sm leading-relaxed">Oui, un <span className="text-gold">parking est disponible</span> pour les membres Titanium Gym.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </>
   )
