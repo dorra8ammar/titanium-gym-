@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'  // ✅ AJOUT
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
-  title: 'Titanium Gym - The land of fitness',
-  description: 'Salle de sport à Sousse - Musculation, cardio, cours collectifs, sauna, vaporium',
+  title: 'Titanium Gym Sousse | Salle de sport haut de gamme',
+  description: 'La plus grande salle de sport à Sousse avec 2500m², plateau musculation 500m², cours collectifs, sauna inclus.',
 }
 
 export default function RootLayout({
@@ -21,34 +21,14 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-        
-        {/* Google Tag Manager - Script principal */}
-        <Script id="gtm-script-head" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-WVGH5QCR');
-          `}
-        </Script>
       </head>
       <body className={`${inter.className} bg-black-deep text-text-offwhite antialiased`}>
-        
-        {/* Google Tag Manager - Fallback sans JavaScript */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WVGH5QCR"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
-        
         <Header />
         <main>{children}</main>
         <Footer />
       </body>
+      {/* ✅ Google Analytics - Ajouté directement */}
+      <GoogleAnalytics gaId="G-VF54JC5J7B" />
     </html>
   )
 }
