@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'standalone',  // ✅ AJOUTEZ CETTE LIGNE
   images: {
     remotePatterns: [
       {
@@ -17,11 +18,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'static9.depositphotos.com',  // ← NOUVEAU DOMAINE AJOUTÉ
+        hostname: 'static9.depositphotos.com',
         port: '',
         pathname: '/**',
       },
-      // Ajoutez ici tous les autres domaines que vous utilisez
     ],
   },
 };
