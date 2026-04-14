@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { GoogleAnalytics } from '@next/third-parties/google'  // ✅ AJOUT
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import './globals.css'
@@ -20,6 +20,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        {/* ✅ VALIDATION GOOGLE SEARCH CONSOLE */}
+        <meta name="google-site-verification" content="QGi1HOqUiHQrQQV4Fh-W5GMsNlYjYNHvWSNqhiAQ5tE" />
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </head>
       <body className={`${inter.className} bg-black-deep text-text-offwhite antialiased`}>
@@ -27,7 +30,6 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
       </body>
-      {/* ✅ Google Analytics - Ajouté directement */}
       <GoogleAnalytics gaId="G-VF54JC5J7B" />
     </html>
   )
