@@ -41,7 +41,7 @@ export default function CGStrengthPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+    <div className="container mx-auto px-4 sm:px-10 max-w-325">
       <Breadcrumb 
         items={[
           { label: 'Accueil', href: '/' },
@@ -50,7 +50,7 @@ export default function CGStrengthPage() {
       />
 
       {/* Hero image */}
-      <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden border border-border-subtle mb-8">
+      <div className="relative h-75 lg:h-100 rounded-2xl overflow-hidden border border-border-subtle mb-8">
         <Image 
           src="/Titanium_Gym.avif"
           alt="TG Strength"
@@ -75,13 +75,13 @@ export default function CGStrengthPage() {
         </p>
         <p className="text-gold mt-4">
           <i className="fas fa-map-marker-alt mr-2"></i>
-          Situé à la Marsa, ce club s'étend sur 600 m² et offre une panoplie d'équipements de pointe.
+          Situé à la Marsa, ce club s&apos;étend sur 600 m² et offre une panoplie d&apos;équipements de pointe.
         </p>
       </div>
 
       {/* Bandes des zones */}
       <div className="flex flex-wrap justify-center gap-6 my-10">
-        {Object.entries(zones).map(([key, zone]) => (
+        {Object.entries(zones).map(([key]) => (
           <div 
             key={key}
             className="bg-black-card border border-border-gold-light rounded-full px-8 py-4 flex items-center gap-4 hover:border-gold hover:-translate-y-1 transition-all cursor-pointer"
@@ -128,7 +128,7 @@ export default function CGStrengthPage() {
             ))}
           </div>
         </div>
-        <div className="rounded-2xl overflow-hidden border-2 border-border-gold-light h-[400px]">
+        <div className="rounded-2xl overflow-hidden border-2 border-border-gold-light h-100">
           <Image 
             src={zones[zoneActive as keyof typeof zones].image}
             alt={zones[zoneActive as keyof typeof zones].titre}
@@ -171,14 +171,14 @@ export default function CGStrengthPage() {
             <div className="bg-gold-min p-6 rounded-xl border-l-4 border-gold">
               <p className="text-text-gray"><span className="text-gold font-semibold">Pour le Green Pass-Sport par prélèvement :</span></p>
               <p className="text-text-gray mt-2">
-                un montant de <span className="text-gold font-semibold">39 DT</span> sera prélevé automatiquement de votre compte bancaire toutes les 2 semaines, avec un engagement minimal d'un an. Le premier prélèvement sera effectué après 8 semaines. Un paiement initial de <span className="text-gold font-semibold">160 DT</span>, hors frais d'inscription, sera requis lors de l'inscription.
+                un montant de <span className="text-gold font-semibold">39 DT</span> sera prélevé automatiquement de votre compte bancaire toutes les 2 semaines, avec un engagement minimal d&apos;un an. Le premier prélèvement sera effectué après 8 semaines. Un paiement initial de <span className="text-gold font-semibold">160 DT</span>, hors frais d&apos;inscription, sera requis lors de l&apos;inscription.
               </p>
             </div>
           </div>
           <div className="space-y-4">
             {[
               { icon: "fa-clock", text: "Gain de temps" },
-              { icon: "fa-coins", text: "Gain d'argent" },
+              { icon: "fa-coins", text: "Gain d&apos;argent" },
               { icon: "fa-brain", text: "Tranquillité d'esprit" },
               { icon: "fa-building", text: "Entreprise • MY CG" }
             ].map((item, index) => (

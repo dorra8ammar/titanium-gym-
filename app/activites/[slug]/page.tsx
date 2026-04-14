@@ -19,7 +19,7 @@ export default function ActiviteDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px] py-8" style={{ backgroundColor: '#08080C', color: '#F0F0F2' }}>
+    <div className="container mx-auto px-4 sm:px-10 max-w-325 py-8" style={{ backgroundColor: '#08080C', color: '#F0F0F2' }}>
       {/* Fil d'Ariane simple */}
       <div style={{ padding: '20px 0', fontSize: '0.75rem', color: '#90909A', borderBottom: '1px solid rgba(255,215,0,0.08)', marginBottom: '20px', textTransform: 'uppercase' }}>
         <Link href="/" style={{ color: '#B8B8C0', textDecoration: 'none' }}>Accueil</Link>

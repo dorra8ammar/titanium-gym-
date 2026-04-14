@@ -71,7 +71,7 @@ export default function Hero() {
               Notre <strong className="text-gold">plateau de musculation de 500 m²</strong> est équipé des dernières machines. 
               Que vous cherchiez <strong className="text-gold">cardio, cours collectifs Bodypump, RPM, Bodycombat ou Yoga</strong>, nos coachs certifiés vous accompagnent. 
               Le <strong className="text-gold">Vaporium et Sauna</strong> sont inclus dans toutes nos formules. 
-              Rejoignez <strong className="text-gold">Titanium Gym</strong> et bénéficiez d'un accès 24/7 avec le <strong className="text-gold">BLUE PASS</strong>.
+              Rejoignez <strong className="text-gold">Titanium Gym</strong> et bénéficiez d&apos;un accès 24/7 avec le <strong className="text-gold">BLUE PASS</strong>.
             </p>
           </div>
           
@@ -112,7 +112,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Right column - Slider */}
-        <div className="relative h-[400px] rounded-2xl overflow-hidden border border-white/10">
+        <div className="relative h-100 rounded-2xl overflow-hidden border border-white/10">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
@@ -127,7 +127,7 @@ export default function Hero() {
                 className="object-cover"
                 priority={index === 0}
               />
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-black/80 to-transparent">
                 <h3 className="text-gold text-2xl font-medium">{slide.title}</h3>
                 <p className="text-text-gray text-sm">{slide.subtitle}</p>
               </div>

@@ -60,7 +60,7 @@ export default function HomePage() {
         }}
       />
       
-      <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+      <div className="container mx-auto px-4 sm:px-10 max-w-325">
         <Breadcrumb 
           items={[
             { label: 'Accueil', href: '/' },
@@ -92,11 +92,11 @@ export default function HomePage() {
     {/* Question 1 - Horaires */}
     <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center shrink-0 mt-0.5">
           <i className="fas fa-clock text-gold text-sm"></i>
         </div>
         <div>
-          <h3 className="text-gold font-semibold mb-2 text-base">Quels sont les horaires d'ouverture ?</h3>
+          <h3 className="text-gold font-semibold mb-2 text-base">Quels sont les horaires d&apos;ouverture ?</h3>
           <p className="text-text-gray text-sm leading-relaxed">Titanium Gym est ouvert du lundi au vendredi de <span className="text-gold">6h à 22h</span>, le samedi et dimanche de <span className="text-gold">7h à 18h</span>. Accès 24/7 avec la formule <span className="text-blue-400">BLUE PASS</span>.</p>
         </div>
       </div>
@@ -105,12 +105,12 @@ export default function HomePage() {
     {/* Question 2 - Localisation */}
     <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center shrink-0 mt-0.5">
           <i className="fas fa-map-marker-alt text-gold text-sm"></i>
         </div>
         <div>
           <h3 className="text-gold font-semibold mb-2 text-base">Où se trouve Titanium Gym à Sousse ?</h3>
-          <p className="text-text-gray text-sm leading-relaxed">Notre salle est située sur l'<span className="text-gold">Avenue de Yasser Arafat</span>, à Sousse, en face de la Banque Zitouna. Stationnement facile disponible.</p>
+          <p className="text-text-gray text-sm leading-relaxed">Notre salle est située sur l&apos;<span className="text-gold">Avenue de Yasser Arafat</span>, à Sousse, en face de la Banque Zitouna. Stationnement facile disponible.</p>
         </div>
       </div>
     </div>
@@ -118,12 +118,12 @@ export default function HomePage() {
     {/* Question 3 - Cours collectifs */}
     <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center shrink-0 mt-0.5">
           <i className="fas fa-fitness-center text-gold text-sm"></i>
         </div>
         <div>
           <h3 className="text-gold font-semibold mb-2 text-base">Quels cours collectifs sont proposés ?</h3>
-          <p className="text-text-gray text-sm leading-relaxed">Nous proposons <span className="text-gold">Bodypump, RPM, Bodycombat, Yoga, Zumba, Cross training, TRX et HBX-Boxing</span>. Tous les cours sont inclus dans l'abonnement.</p>
+          <p className="text-text-gray text-sm leading-relaxed">Nous proposons <span className="text-gold">Bodypump, RPM, Bodycombat, Yoga, Zumba, Cross training, TRX et HBX-Boxing</span>. Tous les cours sont inclus dans l&apos;abonnement.</p>
         </div>
       </div>
     </div>
@@ -131,7 +131,7 @@ export default function HomePage() {
     {/* Question 4 - Sauna inclus */}
     <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center shrink-0 mt-0.5">
           <i className="fas fa-hot-tub text-gold text-sm"></i>
         </div>
         <div>
@@ -144,11 +144,11 @@ export default function HomePage() {
     {/* Question 5 - Prix */}
     <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center shrink-0 mt-0.5">
           <i className="fas fa-tag text-gold text-sm"></i>
         </div>
         <div>
-          <h3 className="text-gold font-semibold mb-2 text-base">Quel est le prix de l'abonnement ?</h3>
+          <h3 className="text-gold font-semibold mb-2 text-base">Quel est le prix de l&apos;abonnement ?</h3>
           <p className="text-text-gray text-sm leading-relaxed">Nous proposons deux formules : <span className="text-blue-400 font-medium">BLUE PASS</span> (accès 24/7 illimité) et <span className="text-yellow-400 font-medium">YELLOW PASS</span> (accès heures creuses). <span className="text-gold">Contactez-nous pour les tarifs actuels</span>.</p>
         </div>
       </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
     {/* Question 6 - Parking */}
     <div className="group bg-white/3 hover:bg-gold-min/10 p-5 rounded-xl border border-white/10 hover:border-gold-dim/50 transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-full bg-gold-min flex items-center justify-center shrink-0 mt-0.5">
           <i className="fas fa-parking text-gold text-sm"></i>
         </div>
         <div>

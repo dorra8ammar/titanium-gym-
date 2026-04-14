@@ -1,13 +1,12 @@
 'use client'
 
 import { activitesList } from '@/lib/data/activites'
-import Link from 'next/link'
 import Image from 'next/image'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 
 export default function ActivitesPage() {
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+    <div className="container mx-auto px-4 sm:px-10 max-w-325">
       <Breadcrumb 
         items={[
           { label: 'Accueil', href: '/' },
@@ -59,7 +58,7 @@ export default function ActivitesPage() {
         <h3 className="text-gold text-xl font-medium mb-4">VOUS DÉBUTEZ ?</h3>
         <p className="text-text-gray text-sm leading-relaxed">
           Tous nos cours collectifs sont adaptés à tous les niveaux et donc accessibles à tous. 
-          Cependant, si vous n'avez jamais fait de sport, ou venez de reprendre après une période d'inactivité, 
+          Cependant, si vous n&apos;avez jamais fait de sport, ou venez de reprendre après une période d&apos;inactivité, 
           il est conseillé de pratiquer une activité cardio telle que tapis ou elliptique pour une durée de 2 semaines.
         </p>
       </div>

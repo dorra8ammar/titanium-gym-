@@ -28,8 +28,7 @@ export default function ActivitiesSection() {
           </h2>
           
           <p className="text-text-darkgray text-sm leading-relaxed mb-6 max-w-[90%]">
-            Une large palette d'activités assurées par nos coachs, 
-            <strong className="text-gold font-medium"> cours LesMills</strong> (bodypump, RPM, bodycombat …), 
+            Une large palette d&apos;activités assurées par nos coachs, 
             <strong className="text-gold font-medium"> cours CG</strong> (yoga, zumba, abdos fessiers …) et 
             <strong className="text-gold font-medium"> training CG</strong> (cross training, TRX, HBX-Boxing).
           </p>

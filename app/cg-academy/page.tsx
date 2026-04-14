@@ -53,13 +53,13 @@ export default function CGAcademyPage() {
       setSlideIndex((prev) => (prev + 1) % formations.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
+  }, [formations.length])
 
   const nextSlide = () => setSlideIndex((prev) => (prev + 1) % formations.length)
   const prevSlide = () => setSlideIndex((prev) => (prev - 1 + formations.length) % formations.length)
 
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+    <div className="container mx-auto px-4 sm:px-10 max-w-325">
       <Breadcrumb 
         items={[
           { label: 'Accueil', href: '/' },
@@ -68,7 +68,7 @@ export default function CGAcademyPage() {
       />
 
       {/* Hero image */}
-      <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden border border-border-subtle mb-8">
+      <div className="relative h-75 lg:h-100 rounded-2xl overflow-hidden border border-border-subtle mb-8">
         <Image 
           src="/TG_Academy.avif"
           alt="TG Academy"
@@ -80,7 +80,7 @@ export default function CGAcademyPage() {
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-3">
               <span className="text-gold">TITANIUM GYM</span> ACADEMY
             </h1>
-            <p className="text-text-gray text-lg">L'expertise fitness au service des coachs</p>
+            <p className="text-text-gray text-lg">L&apos;expertise fitness au service des coachs</p>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function CGAcademyPage() {
       {/* Mission section */}
       <div className="bg-black-card rounded-2xl p-10 border border-border-gold-light my-12 text-center">
         <p className="text-text-gray text-lg leading-relaxed max-w-4xl mx-auto">
-          Titanium Gym Academy, l'expertise fitness au service des coachs, propose des formations et des certifications destinées aux coachs sportifs débutants ou souhaitant développer leurs compétences. Alliant expertise de terrain et excellence pédagogique, elle transforme votre passion en une véritable carrière.
+          Titanium Gym Academy, l&apos;expertise fitness au service des coachs, propose des formations et des certifications destinées aux coachs sportifs débutants ou souhaitant développer leurs compétences. Alliant expertise de terrain et excellence pédagogique, elle transforme votre passion en une véritable carrière.
         </p>
 
         {/* Badges partenaires */}
@@ -125,7 +125,7 @@ export default function CGAcademyPage() {
             <div>
               <h3 className="text-gold text-3xl font-medium mb-6">NASM - National Academy of Sports Medicine</h3>
               <p className="text-text-gray text-lg leading-relaxed mb-8">
-                Certification de prestige reconnue mondialement, NASM™ s'impose comme la référence dans plus de 90 pays. Véritable label d'excellence, elle valorise les coachs et les clubs en attestant de leur expertise, de leur professionnalisme et de leur engagement à délivrer des services de qualité supérieure dans le domaine du fitness et de la santé.
+                Certification de prestige reconnue mondialement, NASM™ s&apos;impose comme la référence dans plus de 90 pays. Véritable label d&apos;excellence, elle valorise les coachs et les clubs en attestant de leur expertise, de leur professionnalisme et de leur engagement à délivrer des services de qualité supérieure dans le domaine du fitness et de la santé.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -141,7 +141,7 @@ export default function CGAcademyPage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden border-2 border-border-gold-light h-[400px]">
+            <div className="rounded-2xl overflow-hidden border-2 border-border-gold-light h-100">
               <Image 
                 src="/NASM.png"
                 alt="NASM Certification"
@@ -156,14 +156,14 @@ export default function CGAcademyPage() {
             <div>
               <h3 className="text-gold text-3xl font-medium mb-6">Seif Sassi</h3>
               <p className="text-text-gray text-lg leading-relaxed mb-4">
-                Seif Sassi est un coach sportif, formateur et consultant reconnu pour son expertise dans le développement des coachs et l'entraînement fonctionnel. Formateur avec l'organisation NASM™, il a accompagné et formé plus de 300 coachs à travers divers programmes de certification et de spécialisation.
+                Seif Sassi est un coach sportif, formateur et consultant reconnu pour son expertise dans le développement des coachs et l&apos;entraînement fonctionnel. Formateur avec l&apos;organisation NASM™, il a accompagné et formé plus de 300 coachs à travers divers programmes de certification et de spécialisation.
               </p>
               <p className="text-text-gray text-lg leading-relaxed mb-6">
-                Passionné par la pédagogie du mouvement, Seif est également formateur des programmes Les Mills, instructeur certifié Animal Flow, et fondateur du concept Kettlebell Workout, une méthode d'entraînement innovante alliant force, endurance et coordination.
+                Passionné par la pédagogie du mouvement, Seif est également formateur des programmes Les Mills, instructeur certifié Animal Flow, et fondateur du concept Kettlebell Workout, une méthode d&apos;entraînement innovante alliant force, endurance et coordination.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  "Plus de 10 ans d'expérience",
+                  "Plus de 10 ans d&apos;expérience",
                   "Certifications internationales",
                   "Pédagogie adaptée",
                   "Suivi personnalisé"
@@ -175,7 +175,7 @@ export default function CGAcademyPage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden border-2 border-border-gold-light h-[400px]">
+            <div className="rounded-2xl overflow-hidden border-2 border-border-gold-light h-100">
               <Image 
                 src="/Seif.jpg"
                 alt="Seif Sassi"
@@ -200,9 +200,9 @@ export default function CGAcademyPage() {
             style={{ transform: `translateX(-${slideIndex * (100 / 3)}%)` }}
           >
             {formations.map((formation, index) => (
-              <div key={index} className="min-w-[calc(33.333%-12px)] flex-shrink-0">
+              <div key={index} className="min-w-[calc(33.333%-12px)] shrink-0">
                 <div className="bg-black-card rounded-xl overflow-hidden border border-border-subtle hover:border-border-gold-light hover:-translate-y-1 transition-all h-full">
-                  <div className="h-[200px] relative overflow-hidden">
+                  <div className="h-50 relative overflow-hidden">
                     <Image 
                       src={formation.image}
                       alt={formation.titre}
@@ -264,7 +264,7 @@ export default function CGAcademyPage() {
         <div>
           <h3 className="text-gold text-3xl font-medium mb-6">CONTACTEZ-NOUS</h3>
           <p className="text-text-gray mb-8">
-            Pour toute demande d'information, vous pouvez nous contacter via les coordonnées ci-dessous.
+            Pour toute demande d&apos;information, vous pouvez nous contacter via les coordonnées ci-dessous.
           </p>
 
           <div className="space-y-6">

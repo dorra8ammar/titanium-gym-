@@ -69,11 +69,6 @@ const coursData: Cours[] = [
   { id: "rpm", nom: "RPM", coach: "Karim", salle: "marsa", jour: "sam", heure: "11:00", duree: "45 min", type: "Cardio", couleur: "rpm" },
 ]
 
-// Mapping des jours
-const joursMapping = {
-  "lun": 1, "mar": 2, "mer": 3, "jeu": 4, "ven": 5, "sam": 6, "dim": 7
-}
-
 // Noms des salles
 const nomsSalles: Record<string, string> = {
   "sousse": "CG Sousse",
@@ -136,7 +131,7 @@ export default function PlanningPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+    <div className="container mx-auto px-4 sm:px-10 max-w-325">
       <Breadcrumb 
         items={[
           { label: 'Accueil', href: '/' },
@@ -151,7 +146,7 @@ export default function PlanningPage() {
             PLANNING DES <span className="text-gold">COURS</span>
           </h1>
         </div>
-        <div className="w-full lg:w-[500px] h-[300px] rounded-xl overflow-hidden border-2 border-border-gold-light">
+        <div className="w-full lg:w-[500px] h-75 rounded-xl overflow-hidden border-2 border-border-gold-light">
           <Image 
             src="/Coach .jpg"
             alt="Coach Titanium Gym"
@@ -178,7 +173,7 @@ export default function PlanningPage() {
             <option value="tunis">TG Tunis</option>
             <option value="lac2">TG Lac 2</option>
             <option value="ennasr">TG Ennasr</option>
-            <option value="menzah">TG Jardins d'El Menzah</option>
+            <option value="menzah">TG Jardins d&apos;El Menzah</option>
             <option value="marsa">TG La Marsa</option>
           </select>
         </div>

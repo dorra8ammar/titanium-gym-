@@ -3,7 +3,7 @@
 export default function Footer() {
   return (
     <footer className="bg-black-soft border-t border-border-subtle py-12 mt-12">
-      <div className="container mx-auto px-4 sm:px-10 max-w-[1300px]">
+      <div className="container mx-auto px-4 sm:px-10 max-w-325">
         {/* Une seule colonne centrée */}
         <div className="text-center">
           {/* Logo et nom */}

@@ -38,7 +38,7 @@ export default function HeroSlider() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
 
   return (
-    <div className="relative h-[400px] rounded-2xl overflow-hidden border border-border-subtle">
+    <div className="relative h-100 rounded-2xl overflow-hidden border border-border-subtle">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -53,7 +53,7 @@ export default function HeroSlider() {
             className="object-cover"
             priority={index === 0}
           />
-          <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+          <div className="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-black/80 to-transparent">
             <h3 className="text-gold text-2xl font-medium">{slide.title}</h3>
             <p className="text-text-gray text-sm">{slide.subtitle}</p>
           </div>

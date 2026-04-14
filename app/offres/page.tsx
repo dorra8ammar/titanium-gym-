@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { useSearchParams } from 'next/navigation'
@@ -80,15 +79,10 @@ const clubsData = [
 // --- COMPOSANT POUR LE CONTENU DES OFFRES ---
 function OffresContent() {
   const searchParams = useSearchParams()
-  const [passActif, setPassActif] = useState('blue')
+  const passFromUrl = searchParams.get('pass')
+  const defaultPass = passFromUrl && ['blue', 'yellow', 'green'].includes(passFromUrl) ? passFromUrl : 'blue'
+  const [passActif, setPassActif] = useState(defaultPass)
   const [clubIndex, setClubIndex] = useState(0)
-
-  useEffect(() => {
-    const pass = searchParams.get('pass')
-    if (pass && ['blue', 'yellow', 'green'].includes(pass)) {
-      setPassActif(pass)
-    }
-  }, [searchParams])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -195,10 +189,10 @@ function OffresContent() {
             <p className="text-text-gray text-sm lg:text-base">
               Pour le <span className="text-gold font-medium">{data.nom} par prélèvement</span> : 
               un montant de <span className="text-gold font-medium">{data.prelevement.montant}</span> sera prélevé 
-              automatiquement de votre compte bancaire toutes les 2 semaines, avec un engagement minimal d'un an. 
+              automatiquement de votre compte bancaire toutes les 2 semaines, avec un engagement minimal d&apos;un an. 
               Le premier prélèvement sera effectué après 8 semaines. Un paiement initial de 
-              <span className="text-gold font-medium"> {data.prelevement.initial}</span>, hors frais d'inscription, 
-              sera requis lors de l'inscription.
+              <span className="text-gold font-medium"> {data.prelevement.initial}</span>, hors frais d&apos;inscription, 
+              sera requis lors de l&apos;inscription.
             </p>
           </div>
 
@@ -206,7 +200,7 @@ function OffresContent() {
           <div className="mb-8">
             <h2 className="flex items-center gap-3 lg:gap-4 text-xl lg:text-2xl font-medium text-white mb-4 lg:mb-6">
               <i className="fas fa-dumbbell text-gold text-2xl lg:text-3xl"></i>
-              NOMBRE DE PLATEAUX D'ACTIVITÉS
+              NOMBRE DE PLATEAUX D&apos;ACTIVITÉS
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
@@ -240,7 +234,7 @@ function OffresContent() {
             <ul className="space-y-3 lg:space-y-4">
               <li className="flex items-start gap-3 lg:gap-4 text-text-gray border-b border-border-subtle pb-2 lg:pb-3">
                 <i className="fas fa-check-circle text-gold text-base lg:text-lg mt-0.5"></i>
-                <span className="text-xs lg:text-sm">Les frais d'inscription de <span className="text-gold font-medium">45 DT</span> sont payés uniquement lors de la première inscription.</span>
+                <span className="text-xs lg:text-sm">Les frais d&apos;inscription de <span className="text-gold font-medium">45 DT</span> sont payés uniquement lors de la première inscription.</span>
               </li>
               <li className="flex items-start gap-3 lg:gap-4 text-text-gray border-b border-border-subtle pb-2 lg:pb-3">
                 <i className="fas fa-times-circle text-gold text-base lg:text-lg mt-0.5"></i>
@@ -262,7 +256,7 @@ function OffresContent() {
           <h2 className="text-xl lg:text-2xl font-medium text-white">NOS CLUBS EN TUNISIE</h2>
         </div>
 
-        <div className="relative h-[300px] lg:h-[450px] rounded-2xl overflow-hidden border border-border-subtle">
+        <div className="relative h-75 lg:h-[450px] rounded-2xl overflow-hidden border border-border-subtle">
           {clubsData.map((club, index) => (
             <div
               key={club.ville}
@@ -276,7 +270,7 @@ function OffresContent() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 bg-gradient-to-t from-black/90 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 bg-linear-to-t from-black/90 to-transparent">
                 <div className="flex items-center gap-2 lg:gap-3 mb-1 lg:mb-2">
                   <i className="fas fa-map-marker-alt text-gold text-xl lg:text-2xl"></i>
                   <h3 className="text-gold text-2xl lg:text-3xl font-semibold">{club.ville}</h3>
@@ -325,7 +319,7 @@ function OffresContent() {
 // --- COMPOSANT PRINCIPAL (page) ---
 export default function OffresPage() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-[1300px]">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-325">
       <Breadcrumb 
         items={[
           { label: 'Accueil', href: '/' },
@@ -340,7 +334,7 @@ export default function OffresPage() {
             NOS <span className="text-gold">OFFRES</span><br />POUR VOUS
           </h1>
         </div>
-        <div className="w-full lg:w-[500px] h-[200px] lg:h-[300px] rounded-xl overflow-hidden border-2 border-border-gold-light">
+        <div className="w-full lg:w-[500px] h-50 lg:h-75 rounded-xl overflow-hidden border-2 border-border-gold-light">
           <Image 
             src="/Coach_Titanium_Gym.jpg"
             alt="Coach Titanium Gym"

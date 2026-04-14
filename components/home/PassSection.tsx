@@ -1,9 +1,7 @@
-import Link from 'next/link'
-
 export default function PassSection() {
   return (
     <section className="bg-black-soft py-16 rounded-t-[40px] border-t border-border-subtle -mx-4 sm:-mx-10 px-4 sm:px-10">
-      <div className="max-w-[1300px] mx-auto">
+      <div className="max-w-325 mx-auto">
         <h2 className="section-title text-2xl font-medium text-white relative inline-block mb-8 after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-[60px] after:h-[2px] after:bg-gold after:opacity-50">
           NOS FORMULES
         </h2>
