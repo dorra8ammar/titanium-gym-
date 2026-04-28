@@ -29,7 +29,10 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-      </body>
+      
+<h1>Titanium Gym – Votre salle de sport premium en Tunisie</h1>
+
+</body>
       <GoogleAnalytics gaId="G-VF54JC5J7B" />
     </html>
   )
