@@ -172,3 +172,6 @@ export default function HomePage() {
     </>
   )
 }
+
+// SEOmind
+useEffect(() => { document.title = "Titanium Gym | Salle de sport moderne en Tunisie"; }, []);
