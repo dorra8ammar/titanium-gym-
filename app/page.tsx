@@ -25,6 +25,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
+      <h1>Titanium Gym, votre partenaire fitness et bien-être</h1>
       {/* Données structurées JSON-LD pour le référencement local */}
       <script
         type="application/ld+json"
